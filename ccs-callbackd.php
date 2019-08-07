@@ -102,6 +102,8 @@ if ($rslt->error()) {
     exit(1);
 }
 
+Logger::log("Configured on queues: $queues");
+
 $sleepIntvl = 0;
 
 $notWorkMsgShown = []; // for each queue
@@ -128,13 +130,15 @@ while (true) {
             ." and qc.wait_time > $queueLeaveTime and (now() - qc.time) < interval"
             ." '$selectIntvl' order by qc.time desc";
 
-//    Logger::log($sql);
+    //Logger::log($sql);
 
     $rows = $db->query($sql);
 
     $recallNums = [];
     foreach ($rows as $row) {
         $num  = $row['data2'];
+        $num = str_replace("+", "", $num); // remove + sign from number
+
         $time = $row['time'];
         $q    = $row['queuename'];
 
