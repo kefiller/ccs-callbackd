@@ -133,7 +133,7 @@ $_CFG = [
         'auth-token' => 'uyLH5PA0MngNyRaPQvr386SOSUiXU8',
     ],
     'db' => [
-        'servers' => ['dcccsapp.guo.local' => '5432'],
+        'servers' => ['db.ccs.local' => '5432'],
         'conn-params' => ['dbname' => 'ccs', 'user' => 'aster', 'password' => '12Fcnthbcr34',
          'connect_timeout' => '3'],
     ],
