@@ -1,0 +1,190 @@
+<?php
+
+$baseCampSettings = [
+    'interval-wtime' => '00:00:00-23:59:59',
+    'interval-dow' => 'mon-sun',
+    'amount' => '1',
+    'retry' => '2',
+    'retry-secs' => '300',
+    'interval-send' => '300',
+    'hear-secs' => 5,
+    'msg-template' => ' ',
+    'tts-voice' => 'oksana',
+    'tts-speed' => '0.9',
+    'tts-emotion' => 'neutral',
+    'channels' => '10',
+    'callerid' => ' ',
+//    'cardid' => '12414',
+    'trunk' => 'atk-dc',
+    'log-extra-fields' => ['queue', 'virtual-oper'],
+//    'bridge-target' => ['type' => 'dialplan', 'context' => 'a2i-callback-rec', 'extension' => '${NUM}^default'],
+];
+
+$qConfSBK = [
+    'trunk' => 'ezfop1-88005550775',
+    'callerid' => '78005550775',
+    'msg-template' => "Вы можете оставить голосовое сообщение с показаниями приборов учета."
+      ." Назовите Ваш полный адрес, фамилию имя отчество, номер лицевого счета, номер прибора учета с текущими показаниями.",
+    'virtual-oper' => '2000',
+];
+
+$qConfNN = [
+    'trunk' => 'nn-88312681000',
+    'callerid' => '78312681000',
+    'msg-template' => "Уважаемый клиент! Вы обращались в Домоуправляющую компанию."
+      ." К сожалению, в этот момент все операторы были заняты, и мы не смогли принять Ваш звонок."
+      ." Предлагаем Вам оставить нам голосовое сообщение, которое будет обработано"
+      ." в ближайшее время. Для записи сообщения оставайтесь на линии.",
+    'virtual-oper' => '2000',
+];
+
+$qConfSMR = [
+    'trunk' => 'smr-88463004000',
+    'callerid' => '78463004000',
+    'msg-template' => "Уважаемый клиент! Вы обращались в Управляющую компанию."
+      ." К сожалению, в этот момент все операторы были заняты, и мы не смогли принять Ваш звонок."
+      ." Предлагаем Вам оставить нам голосовое сообщение, которое будет обработано"
+      ." в ближайшее время. Для записи сообщения оставайтесь на линии.",
+    'virtual-oper' => '2000',
+];
+
+$qConfSP = [
+    'trunk' => 'sp-84965419020',
+    'callerid' => '74965419020',
+    'msg-template' => "Уважаемый клиент! Вы обращались в Домоуправляющую компанию."
+      ." К сожалению, в этот момент все операторы были заняты, и мы не смогли принять Ваш звонок."
+      ." Предлагаем Вам оставить нам голосовое сообщение, которое будет обработано"
+      ." в ближайшее время. Для записи сообщения оставайтесь на линии.",
+    'virtual-oper' => '2000',
+];
+
+$qConfKIR = [
+    'trunk' => 'kir-88332713317',
+    'callerid' => '78332713317',
+    'msg-template' => "Уважаемый клиент! Вы обращались в Управляющую компанию."
+      ." К сожалению, в этот момент все операторы были заняты, и мы не смогли принять Ваш звонок."
+      ." Предлагаем Вам оставить нам голосовое сообщение, которое будет обработано"
+      ." в ближайшее время. Для записи сообщения оставайтесь на линии.",
+    'virtual-oper' => '2000',
+];
+
+$qConfKEM = [
+    'trunk' => 'cc-kem-73842780118',
+    'callerid' => '73842780118',
+    'msg-template' => "Уважаемый клиент! Вы обращались в Управляющую компанию."
+      ." К сожалению, в этот момент все операторы были заняты, и мы не смогли принять Ваш звонок."
+      ." Предлагаем Вам оставить нам голосовое сообщение, которое будет обработано"
+      ." в ближайшее время. Для записи сообщения оставайтесь на линии.",
+    'virtual-oper' => '2000',
+];
+
+$qConfTest = [
+    'callerid' => '79005555550',
+    'cardid' => '12414',
+//    'msg-template' => "Уважаемый абонент! Вас беспокоит ваша Управляющая компания. К сожалению, в данный момент".
+//        " все операторы заняты и мы не смогли принять ваш звонок. Тут информация стандартная по пуско-наладочным работам.".
+//        " Предлагаем вам оставить нам голосовое сообщение, которые будет обработано в ближайшее время. Большое спасибо за".
+//        " понимание и всякое такое. Для записи сообщения оставайтесь на линии. Чмоки, ваша управляшка.",
+    'msg-template' => "Чмокен, ваша домоуправляшка.",
+    'virtual-oper' => '2000',
+];
+
+$qConf701 = $qConfSBK;
+$qConf701['bridge-target'] = ['type' => 'dialplan', 'context' => 'a2i-callback-rec', 'extension' => '${NUM}^701^sbk^2000'];
+
+$qConf704 = $qConfNN;
+$qConf704['bridge-target'] = ['type' => 'dialplan', 'context' => 'a2i-callback-rec', 'extension' => '${NUM}^704^nn^2000'];
+
+$qConf706 = $qConfNN;
+$qConf706['bridge-target'] = ['type' => 'dialplan', 'context' => 'a2i-callback-rec', 'extension' => '${NUM}^706^nn^2000'];
+
+$qConf707 = $qConfSP;
+$qConf707['bridge-target'] = ['type' => 'dialplan', 'context' => 'a2i-callback-rec', 'extension' => '${NUM}^707^sergiev_posad^2000'];
+
+$qConf709 = $qConfKEM;
+$qConf709['bridge-target'] = ['type' => 'dialplan', 'context' => 'a2i-callback-rec', 'extension' => '${NUM}^709^kemerovo^2000'];
+
+$qConf710 = $qConfKIR;
+$qConf710['bridge-target'] = ['type' => 'dialplan', 'context' => 'a2i-callback-rec', 'extension' => '${NUM}^710^kirov^2000'];
+
+$qConf711 = $qConfNN;
+$qConf711['bridge-target'] = ['type' => 'dialplan', 'context' => 'a2i-callback-rec', 'extension' => '${NUM}^711^nn^2000'];
+
+$qConf712 = $qConfSMR;
+$qConf712['bridge-target'] = ['type' => 'dialplan', 'context' => 'a2i-callback-rec', 'extension' => '${NUM}^712^samara^2000'];
+
+$qConf713 = $qConfSMR;
+$qConf713['bridge-target'] = ['type' => 'dialplan', 'context' => 'a2i-callback-rec', 'extension' => '${NUM}^713^samara^2000'];
+
+//$qConf727 = $qConfTest;
+$qConf727 = $qConfNN;
+$qConf727['bridge-target'] = ['type' => 'dialplan', 'context' => 'a2i-callback-rec', 'extension' => '${NUM}^727^test^2000'];
+
+// Moscow time
+$queueWorktimeStd = [
+    'starttime' => '00:00',
+    'stoptime' =>  '23:59',
+    'days' => ['Monday','Tuesday','Wednesday','Thursday','Friday', 'Saturday', 'Sunday'],
+];
+
+$_CFG = [
+    'ccs-api' => [
+        'url' => 'http://localhost:8008/api/v1/',
+        'auth-token' => 'uyLH5PA0MngNyRaPQvr386SOSUiXU8',
+    ],
+    'db' => [
+        'servers' => ['db.ccs.local' => '5432'],
+        'conn-params' => ['dbname' => 'ccs', 'user' => 'aster', 'password' => '12Fcnthbcr34',
+         'connect_timeout' => '3'],
+    ],
+    'timings' => [
+        'loop-intvl' => 5, // seconds
+        'queue-leave-time' => 40, //seconds
+        'select-intvl' => '2 minutes',
+    ],
+    'queues' => [
+//        '701' => $qConf701, //020_SBK
+        '704' => [ // NN_TEPLO
+            'campaign-settings' => $qConf704,
+            'worktime' => $queueWorktimeStd,
+        ],
+        '706' => [ // 070_KST
+            'campaign-settings' => $qConf706,
+            'worktime' => $queueWorktimeStd,
+        ],
+        '707' => [ // 075_SP
+            'campaign-settings' => $qConf707,
+            'worktime' => $queueWorktimeStd,
+        ],
+        '709' => [ // CC_KEM
+            'campaign-settings' => $qConf709,
+            'worktime' => $queueWorktimeStd,
+        ],
+        '710' => [ // 080_KIR
+            'campaign-settings' => $qConf710,
+            'worktime' => $queueWorktimeStd,
+        ],
+        '711' => [ // CC_NN
+            'campaign-settings' => $qConf711,
+            'worktime' => $queueWorktimeStd,
+        ],
+        '712' => [ // CC_SMR
+            'campaign-settings' => $qConf712,
+            'worktime' => $queueWorktimeStd,
+        ],
+        '713' => [ // SMR_TEPLO
+            'campaign-settings' => $qConf713,
+            'worktime' => $queueWorktimeStd,
+        ],
+        '727' => [ // TEST
+            'campaign-settings' => $qConf727,
+            'worktime' => $queueWorktimeStd,
+        ],
+    ],
+    'extra' => [
+        'camp-name' => 'cc_recall',
+        'dry-run' => false,
+        'drop-campaign-on-start' => true,
+    ],
+    'campaign-settings' => $baseCampSettings,
+];
